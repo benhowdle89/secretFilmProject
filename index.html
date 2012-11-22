@@ -1,0 +1,101 @@
+<!DOCTYPE>
+<html>
+<head>
+ 	<meta charset="UTF-8">
+	<title>Co★Starred</title>
+	
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	
+	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+
+	<link rel="apple-touch-icon-precomposed" href="gosling.jpg">
+	<link rel="apple-touch-startup-image" href="splash.jpg" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 		
+
+	<script type="text/javascript" src="//use.typekit.net/aqu3fvl.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script type="text/javascript" async src="js/handlebars.js"></script>
+	<script type="text/javascript" async src="js/app.js"></script>
+</head>
+<body>
+	<header>
+			<h1>Costarred</h1>
+<!-- 			<a class="button new" href="#"><img src="search.png" alt="Search"></a>
+ -->	</header>
+	<div class="wrap">
+	<section id="search">
+		<p>Discover which films your favourite actors have worked together on.</p>
+		<div class="inputs">
+			<div>
+<!-- 				<label for="actor1">Actor 1</label>
+ -->				<input type="text" placeholder="Ryan Gosling" value="Ryan Gosling" name="actor1" id="actor1" required>
+			</div>
+			<div class="separator"></div>
+			<div>
+<!-- 				<label for="actor2">Actor 2</label>
+ -->				<input type="text" placeholder="Emma Stone" value="Emma Stone" name="actor2" id="actor2" required>
+			</div>
+		</div>
+		<div class="controls">
+			<button>Search</button>
+		</div>		
+	</section>
+	<section id="results">
+		<div class="no-results">
+			<h1>Aww shucks!</h1> 
+			<p><span id="firstActor" class="name">Ryan Gosling</span> and <span id="secondActor" class="name">Emma Stone</span> have yet to appear in a film together.</p>
+			<!-- <span class="ampersand">&amp;</span>	 -->
+		</div>
+
+		<div class="empty-results">
+			<h1>Strange…</h1>
+			<p>We couldn't retrieve any results. Are your actor's names spelled correctly?</p>
+		</div>		
+
+		<div class="yes-results">
+			<div class="actors">
+				
+			</div>
+			
+			<div id="films">
+				
+			</div>
+		</div>
+
+		<div id="loading">
+			<h1>Loading...</h1>
+		</div>
+							
+	</section>		
+	<footer>
+		<h6>Brought to you by the Dashing Rogues</h6>
+	</footer>
+	</div>
+
+	<script id="film-template" type="text/x-handlebars-template">
+	{{#this}}
+	<div class="film">
+		<span style="background-image: url({{poster}})"></span>
+		<h1>{{title}}</h1>
+	</div>
+	{{/this}}
+	</script>
+
+	<script id="actor-template" type="text/x-handlebars-template">
+	{{#this}}
+	<div class="{{actorClass}}">
+		<div class="wrapper">
+			<span style="background-image: url({{profile}})"></span>
+		</div>
+		<h1>{{name}}</h1>
+	</div>	
+	{{/this}}					
+	</script>
+
+</body>
+</html>
