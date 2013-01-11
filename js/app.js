@@ -49,6 +49,7 @@ jQuery(function( $ ) {
 			var that = this;
 			if(!json.results.length){
 				that.renderEmptyResults();
+				this.$loading.hide();
 				return false;
 			}
 			var id = json.results[0].id;
@@ -80,7 +81,7 @@ jQuery(function( $ ) {
 					this.populateErrors();
 					this.renderNoResults();
 				}
-				
+				this.$loading.hide();
 			}
 		},
 		populateErrors: function(){
@@ -120,15 +121,22 @@ jQuery(function( $ ) {
 			});
 		},
 		search: function(){
+			this.showLoading();
 			var that = this;
 			that.actors = [];
 			that.films = [];
 			that.titles = [];
 			this.doRender = [];
 			this.$inputs.each(function(){
-				if($(this).val() == '') return;
+				if($(this).val() === '') return;
 				Utils.ajax(that.buildPersonSearchUrl($(this).val()), that.storeActor, that);
 			});
+		},
+		showLoading: function(){
+			this.$loading.show();
+			this.$noResults.hide();
+			this.$emptyResults.hide();
+			this.$yesResults.hide();
 		},
 		setupUi: function(){
 			this.$noResults.hide();
