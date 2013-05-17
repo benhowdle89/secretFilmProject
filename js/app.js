@@ -11,11 +11,13 @@ jQuery(function($) {
 			}).done(function(msg) {
 				success.call(context, msg);
 			});
-		}
+		},
+		events: $({})
 	};
 
 	var App = {
 		init: function() {
+			var that = this;
 			this.apiKey = '23afca60ebf72f8d88cdcae2c4f31866';
 			this.baseUrl = 'http://api.themoviedb.org/3/';
 			this.imageUrl = '';
@@ -23,11 +25,26 @@ jQuery(function($) {
 			this.actors = [];
 			this.titles = [];
 			this.doRender = [];
+			this.urlParams = [];
 			this.classTranslate = ['first', 'second'];
 			this.cacheElements();
 			this.bindEvents();
 			this.setupUi();
 			this.getConfig();
+			if (window.location.hash) {
+				Utils.events.on('ready', function() {
+					var actors = window.location.hash.replace('#', '').split(',');
+					that.handleSearch(actors);
+					for (var i = 0; i < that.$inputs.length; i++) {
+						that.$inputs[i].value = actors[i];
+					}
+				});
+			} else {
+				var actors = ['Ryan Gosling', 'Emma Stone'];
+				for (var i = 0; i < that.$inputs.length; i++) {
+					that.$inputs[i].value = actors[i];
+				}
+			}
 		},
 		buildPersonSearchUrl: function(person) {
 			return this.baseUrl + 'search/person?query=' + person + '&api_key=' + this.apiKey;
@@ -44,6 +61,7 @@ jQuery(function($) {
 		},
 		saveConfig: function(json) {
 			this.imageUrl = json.images.base_url + 'w185/';
+			Utils.events.trigger('ready');
 		},
 		storeActor: function(json) {
 			var that = this;
@@ -110,6 +128,7 @@ jQuery(function($) {
 			this.$yesResults = $('.yes-results');
 			this.$emptyResults = $('.empty-results');
 			this.$loading = $('#loading');
+			this.$tweet = $('.tweet');
 			this.$errorFirstActor = $('#firstActor', this.$noResults);
 			this.$errorSecondActor = $('#secondActor', this.$noResults);
 			this.$inputs = $('.inputs input[type="text"]');
@@ -122,18 +141,49 @@ jQuery(function($) {
 			controls.on('click', 'button', function() {
 				that.search();
 			});
+			this.$inputs.on('keyup', function(e) {
+				if (e.keyCode == 13) {
+					that.search();
+				}
+			});
+			this.$tweet.on('click', function() {
+				var msg = encodeURIComponent(that.$inputs[0].value + ' and ' + that.$inputs[1].value);
+				var url = encodeURIComponent($('#shortURL')[0].value);
+				var link = 'http://twitter.com/intent/tweet?text=' + msg + '&url=' + url;
+				window.open(link);
+			});
+		},
+		resetStates: function() {
+			this.showLoading();
+			this.actors = [];
+			this.films = [];
+			this.titles = [];
+			this.doRender = [];
+		},
+		handleSearch: function(actors) {
+			this.resetStates();
+			if (actors.length) {
+				for (var x in actors) {
+					Utils.ajax(this.buildPersonSearchUrl(actors[x]), this.storeActor, this);
+				}
+			}
 		},
 		search: function() {
-			this.showLoading();
 			var that = this;
-			that.actors = [];
-			that.films = [];
-			that.titles = [];
-			this.doRender = [];
+			var tmp = [];
+			that.urlParams = [];
 			this.$inputs.each(function() {
-				if ($(this).val() === '') return;
-				Utils.ajax(that.buildPersonSearchUrl($(this).val()), that.storeActor, that);
+				if (this.value === '') return;
+				tmp.push(this.value);
+				that.urlParams.push(this.value);
 			});
+			this.handleSearch(tmp);
+			this.newUrl();
+		},
+		newUrl: function() {
+			if (this.urlParams.length > 1) {
+				window.location.hash = this.urlParams.join(',');
+			}
 		},
 		showLoading: function() {
 			this.$loading.show();
@@ -152,6 +202,11 @@ jQuery(function($) {
 			this.$noResults.hide();
 			this.$emptyResults.hide();
 			this.$yesResults.show();
+			var patternURL = encodeURIComponent(window.location.href);
+			var url = "http://api.bitly.com/v3/shorten?login=benhowdle89&apiKey=R_01f556645116f8620103c31e48d7f2a2&longUrl=" + patternURL + "&format=txt";
+			$.get(url, function(data) {
+				$("#shortURL").val(data).show().focus().select();
+			});
 		},
 		renderNoResults: function() {
 			this.$noResults.show();
