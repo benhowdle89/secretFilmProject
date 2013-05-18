@@ -111,12 +111,12 @@ label {
 	display: block;
 }
 
-input[type="text"] {
+input[type="text"], input[type="search"] {
 	-webkit-appearance: none;
 	width: 100%;
 	@include box-sizing(border-box);
 	border: none;
-	padding: 10px 15px;
+	padding: 10px 5px;
 	line-height: 1.3;
 	font-size: 0.9em;
 	background: none;
