@@ -22,7 +22,7 @@ jQuery(function($) {
 			this.baseUrl = 'http://api.themoviedb.org/3/';
 			this.imageUrl = '';
 			this.films = [];
-			this.actors = [];
+			this.actors = ['Michael Fassbender', 'Mila Kunis'];
 			this.titles = [];
 			this.doRender = [];
 			this.urlParams = [];
@@ -40,11 +40,30 @@ jQuery(function($) {
 					}
 				});
 			} else {
-				var actors = ['Ryan Gosling', 'Emma Stone'];
+				var actors = [
+				'Ryan Gosling', 
+				'Emma Stone', 
+				'Michael Fassbender', 
+				'Tom Cruise', 
+				'Julia Roberts', 
+				'George Clooney',
+				'Carey Mulligan',
+				'Leonardo di Caprio',
+				'Bryan Cranston',
+				'Aaron Paul',
+				'Brad Pitt',
+				'Tilda Swinton',
+				'Matt Damon',
+				'Denzel Washington'];
+				actors.sort(this.randomise);
 				for (var i = 0; i < that.$inputs.length; i++) {
 					that.$inputs[i].value = actors[i];
 				}
 			}
+		},
+
+		randomise: function() {
+			return (Math.round(Math.random())-0.5);		
 		},
 		buildPersonSearchUrl: function(person) {
 			return this.baseUrl + 'search/person?query=' + person + '&api_key=' + this.apiKey;
