@@ -22,7 +22,7 @@ jQuery(function($) {
 			this.baseUrl = 'http://api.themoviedb.org/3/';
 			this.imageUrl = '';
 			this.films = [];
-			this.actors = ['Michael Fassbender', 'Mila Kunis'];
+			this.actors = [];
 			this.titles = [];
 			this.doRender = [];
 			this.urlParams = [];

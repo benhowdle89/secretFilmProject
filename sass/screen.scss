@@ -154,6 +154,8 @@ button {
 	font-family: "ff-prater-script-web";
 	display: block;
 	cursor: pointer;
+}&:hover {
+	@include background-image(linear-gradient(adjust-hue(#ffa900, 10), #e34b00));	
 }
 
 button:active {
