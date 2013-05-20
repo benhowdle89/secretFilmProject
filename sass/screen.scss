@@ -24,23 +24,24 @@ html {
 		background: #475473;
 		background: rgb(96,108,136); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url('../noise.png'), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMzUlIiBzdG9wLWNvbG9yPSIjNjA2Yzg4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNmNGM2YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9yYWRpYWxHcmFkaWVudD4KICA8cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMDEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: url('../img/noise.png'), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMzUlIiBzdG9wLWNvbG9yPSIjNjA2Yzg4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNmNGM2YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9yYWRpYWxHcmFkaWVudD4KICA8cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMDEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 35%, rgba(63,76,107,1) 100%); /* FF3.6+ */
-	background: url('../noise.png'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(35%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1))); /* Chrome,Safari4+ */
-	background: url('../noise.png'), -webkit-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: url('../img/noise.png'), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(35%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1))); /* Chrome,Safari4+ */
+	background: url('../img/noise.png'), -webkit-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* Opera 12+ */
 	background: -ms-radial-gradient(center, ellipse cover,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* IE10+ */
-	background: url('../noise.png'), radial-gradient(ellipse at center,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* W3C */
+	background: url('../img/noise.png'), radial-gradient(ellipse at center,  rgba(96,108,136,1) 35%,rgba(63,76,107,1) 100%); /* W3C */
 	border-top: 5px solid #374259;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 	color: #fff;
 	font-family: "proxima-nova", sans-serif;
+	height: 100%;
 	-webkit-font-smoothing: antialiased;
-		
+
 }
 
 body {
-	
+
 	margin: auto;
 	max-width: 30em;
 }
@@ -51,7 +52,7 @@ header {
 	padding: 0.5em 2.5%;
 	overflow: auto;
 	text-align: center;
-		
+
 
 	h1 {
 		color: #374259;
@@ -154,8 +155,9 @@ button {
 	font-family: "ff-prater-script-web";
 	display: block;
 	cursor: pointer;
-}&:hover {
-	@include background-image(linear-gradient(adjust-hue(#ffa900, 10), #e34b00));	
+	&:hover {
+		@include background-image(linear-gradient(adjust-hue(#ffa900, 5), adjust-hue(#e34b00, 5)));
+	}
 }
 
 button:active {
@@ -204,7 +206,7 @@ button:active {
 	float: left;
 	position: relative;
 	-webkit-animation-duration: 1s;
-	-webkit-animation-name: slideInLeft;	
+	-webkit-animation-name: slideInLeft;
 
 	span {
 		background-image: url('../gosling.jpg');
@@ -219,7 +221,7 @@ button:active {
 		left: 0;
 		width: 88px;
 		height: 88px;
-		@include border-radius(46px);	
+		@include border-radius(46px);
 	}
 }
 
@@ -243,8 +245,8 @@ button:active {
 		left: 0;
 		width: 88px;
 		height: 88px;
-		@include border-radius(46px);	
-	}	
+		@include border-radius(46px);
+	}
 }
 
 
@@ -383,7 +385,7 @@ footer {
 
 @media screen and (min-width: 48em) {
 	footer {
-		font-size: 0.8em;		
+		font-size: 0.8em;
 	}
 }
 

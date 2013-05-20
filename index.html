@@ -3,11 +3,11 @@
 <head>
  	<meta charset="UTF-8">
 	<title>CoSt★rred</title>
-	
+
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
-	
+
 	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
 
 	<link rel="apple-touch-icon-precomposed" href="gosling.jpg">
@@ -15,7 +15,7 @@
 	<link rel="apple-touch-startup-image" href="costarred_large@2x.jpg" sizes="640x1096"/>
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 		
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 	<script type="text/javascript" src="//use.typekit.net/aqu3fvl.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -27,7 +27,7 @@
 	</header>
 	<div class="wrap">
 	<section id="search">
-		<p>A quick and easy way to discover whether two actors have worked together!</p>
+		<p>Who's worked with who in what?</p>
 		<div class="inputs">
 			<div>
 				<input type="text" placeholder="Ryan Gosling" value="" name="actor1" id="actor1" required>
@@ -39,36 +39,36 @@
 		</div>
 		<div class="controls">
 			<button>Search</button>
-		</div>		
+		</div>
 	</section>
 	<section id="results">
 		<div class="no-results">
-			<h1>Aww shucks!</h1> 
+			<h1>Aww shucks!</h1>
 			<p><span id="firstActor" class="name">Ryan Gosling</span> and <span id="secondActor" class="name">Emma Stone</span> have yet to appear in a film together.</p>
 		</div>
 
 		<div class="empty-results">
 			<h1>Strange…</h1>
 			<p>We couldn't retrieve any results. Are your actor's names spelled correctly?</p>
-		</div>		
+		</div>
 
 		<div class="yes-results">
 			<input class="fauxinput" id="shortURL" />
 			<button class="tweet">Tweet</button>
 			<div class="actors">
-				
+
 			</div>
-			
+
 			<div id="films">
-				
+
 			</div>
 		</div>
 
 		<div id="loading">
 			<h1>Loading...</h1>
 		</div>
-							
-	</section>		
+
+	</section>
 	<footer>
 		<h6>A project by <a href="http://benhowdle.im">Ben Howdle</a> &amp; <a href="http://danmatthew.co.uk">Daniel Matthew</a></h6>
 	</footer>
@@ -90,8 +90,8 @@
 			<span style="background-image: url({{profile}})"></span>
 		</div>
 		<h1>{{name}}</h1>
-	</div>	
-	{{/this}}					
+	</div>
+	{{/this}}
 	</script>
 
 	<script>
