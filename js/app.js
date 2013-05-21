@@ -41,29 +41,20 @@ jQuery(function($) {
 				});
 			} else {
 				var actors = [
-				'Ryan Gosling', 
-				'Emma Stone', 
-				'Michael Fassbender', 
-				'Tom Cruise', 
-				'Julia Roberts', 
-				'George Clooney',
-				'Carey Mulligan',
-				'Leonardo di Caprio',
+				'Ryan Gosling',
+				'Emma Stone',
 				'Bryan Cranston',
-				'Aaron Paul',
-				'Brad Pitt',
-				'Tilda Swinton',
-				'Matt Damon',
-				'Denzel Washington'];
+				'Oscar Issac',
+				'Michael Fassbender',
+				'Carey Mulligan'];
 				actors.sort(this.randomise);
 				for (var i = 0; i < that.$inputs.length; i++) {
 					that.$inputs[i].value = actors[i];
 				}
 			}
 		},
-
 		randomise: function() {
-			return (Math.round(Math.random())-0.5);		
+			return (Math.round(Math.random())-0.5);
 		},
 		buildPersonSearchUrl: function(person) {
 			return this.baseUrl + 'search/person?query=' + person + '&api_key=' + this.apiKey;
@@ -73,6 +64,9 @@ jQuery(function($) {
 		},
 		buildConfigUrl: function() {
 			return this.baseUrl + 'configuration?api_key=' + this.apiKey;
+		},
+		buildPopularUrl: function() {
+			return this.baseURL + 'person/popular?api_key=' + this.apiKey;
 		},
 		getConfig: function() {
 			var that = this;
