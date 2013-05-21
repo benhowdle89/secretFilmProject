@@ -44,7 +44,7 @@ jQuery(function($) {
 				'Ryan Gosling',
 				'Emma Stone',
 				'Bryan Cranston',
-				'Oscar Issac',
+				'Oscar Isaac',
 				'Michael Fassbender',
 				'Carey Mulligan'];
 				actors.sort(this.randomise);
